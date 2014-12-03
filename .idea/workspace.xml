@@ -59,8 +59,8 @@
       <file leaf-file-name="show.html.haml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/characters/show.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7708333" vertical-offset="428" max-vertical-offset="1100">
-              <caret line="43" column="1" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.63988096" vertical-offset="472" max-vertical-offset="1166">
+              <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -864,8 +864,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/characters/show.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7708333" vertical-offset="428" max-vertical-offset="1100">
-          <caret line="43" column="1" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.63988096" vertical-offset="472" max-vertical-offset="1166">
+          <caret line="41" column="35" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
           <folding />
         </state>
       </provider>

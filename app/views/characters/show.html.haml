@@ -39,6 +39,9 @@
 %p
 
 .btn-group{"aria-label" => "...", :role => "group"}
-  %button.btn.btn-default{:type => "button"}= link_to 'Back', characters_path
-  %button.btn.btn-default{:type => "button"}= link_to 'Home', root_path
+  - previous_character = Character.where("id > ?", params[:id]).first
+  - next_character = Character.where("id < ?", params[:id]).last
+  %a.btn.btn-default{:href => "/characters/#{previous_character.id}"} Previous
+  %a.btn.btn-default{:href => "/characters"} All
+  %a.btn.btn-default{:href => "/characters/#{previous_character.id}"}  Next
   -#%button.btn.btn-default{:type => "button"} Right
