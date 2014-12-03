@@ -17,7 +17,36 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+nav {
+  background: url("http://www.designknock.com/wp-content/uploads/2013/06/Subtle-Light-Tile-Pattern.jpg") repeat;
+  padding: 10px;
+}
+
 .header {
   display: block;
   width: 100%;
+}
+
+ul.navigation {
+  h1 {
+    display: inline;
+  }
+  li {
+    display: inline;
+    list-style-type: none;
+  }
+}
+
+ul.sign-in-nav {
+  li {
+    display: inline;
+  }
+}
+
+a:hover {
+  background-color: transparent;
+}
+
+li:hover {
+  background-color: transparent;
 }

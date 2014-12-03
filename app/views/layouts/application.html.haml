@@ -7,11 +7,15 @@
     = csrf_meta_tags
   %body
     %nav.navbar.navbar-default
-      .col-md-10.col-md-offset-1
-        %a{:href => "/"}
-          %h1 Characters
-        = render "common/login"
-    %p.notice= notice
-    %p.alert= alert
+      .col-md-12
+        %ul.navigation
+          %li.pull-left
+            %a{:href => "/"}
+              %h1 Characters
+          %li.pull-right
+            = render "common/login"
+    .col-md-10.col-md-offset-1
+      %p.notice= notice
+      %p.alert= alert
     .col-md-6.col-md-offset-3
       = yield

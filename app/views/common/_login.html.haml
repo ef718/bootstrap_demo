@@ -1,15 +1,30 @@
 .header.pull-right
-  %ul.nav.pull-right
+  %ul.nav.pull-right.sign-in-nav
     - if user_signed_in?
-      %li
-        = link_to "Logout", destroy_user_session_path, :method => :delete
+      %li.pull-left
+        .dropdown
+          %button#dropdownMenu1.btn.btn-default.dropdown-toggle{"aria-expanded" => "true", "data-toggle" => "dropdown", :type => "button"}
+            Account
+            %span.caret
+          %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1", :role => "menu"}
+            %li{:role => "presentation"}
+              %a{:href => "http://www.google.com", :role => "menuitem", :tabindex => "-1"} Google
+            %li{:role => "presentation"}
+              %a{:href => "/characters", :role => "menuitem", :tabindex => "-1"} Characters
+            %li{:role => "presentation"}
+              %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Something else here
+            %li.disabled{:role => "presentation"}
+              %a{:href => "#", :role => "menuitem", :tabindex => "-1"} Separated link
+      %li.pull-right
+        %button.btn.btn-default= link_to "Logout", destroy_user_session_path, :method => :delete
     - else
-      = form_tag user_session_path do
-        = text_field_tag 'user[email]'
-        = password_field_tag 'user[password]'
-        = check_box_tag 'user[remember_me]'
-        = label_tag 'user[remember_me]', 'Remember me'
-        %button.btn.btn-default Sign In
-        %li.btn.btn-default= link_to "Sign Up", new_user_registration_path
-        = link_to "Forgot your password?", new_password_path(:user)
-      -#%li= link_to "Sign In", new_user_session_path
+      %li
+        = form_tag user_session_path do
+          = text_field_tag 'user[email]'
+          = password_field_tag 'user[password]'
+          = check_box_tag 'user[remember_me]'
+          = label_tag 'user[remember_me]', 'Remember me'
+          %button.btn.btn-default Sign In
+          %button.btn.btn-default= link_to "Sign Up", new_user_registration_path
+          = link_to "Forgot your password?", new_password_path(:user)
+        -#%li= link_to "Sign In", new_user_session_path
