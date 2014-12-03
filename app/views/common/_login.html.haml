@@ -1,0 +1,15 @@
+.header.pull-right
+  %ul.nav.pull-right
+    - if user_signed_in?
+      %li
+        = link_to "Logout", destroy_user_session_path, :method => :delete
+    - else
+      = form_tag user_session_path do
+        = text_field_tag 'user[email]'
+        = password_field_tag 'user[password]'
+        = check_box_tag 'user[remember_me]'
+        = label_tag 'user[remember_me]', 'Remember me'
+        %button.btn.btn-default Sign In
+        %li.btn.btn-default= link_to "Sign Up", new_user_registration_path
+        = link_to "Forgot your password?", new_password_path(:user)
+      -#%li= link_to "Sign In", new_user_session_path

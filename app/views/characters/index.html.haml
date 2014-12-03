@@ -1,0 +1,58 @@
+%h1 Listing characters
+
+%table
+  %tr
+    %th Name
+    %th Age
+    %th Photo
+    %th
+    %th
+
+  - @characters.each do |character|
+    %tr
+      %td= character.name
+      %td= character.age
+      %td= link_to image_tag(character.photo_url, width: '250'), character
+      -#%td= link_to 'Show', character
+      -#%td= link_to 'Edit', edit_character_path(character)
+      %td
+        / Button trigger modal
+        %button.btn.btn-primary.btn-lg{"data-target" => "#character_#{character.id}", "data-toggle" => "modal", :type => "button"}
+          Update
+        / Modal
+        %div{:id => "character_#{character.id}", :class => ["modal", "fade"], "aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-dialog
+            .modal-content
+              .modal-header
+                %button.close{"data-dismiss" => "modal", :type => "button"}
+                  %span{"aria-hidden" => "true"} &times;
+                  %span.sr-only Close
+                %h4#myModalLabel.modal-title Update Character
+              .modal-body
+                = render partial: 'form', locals: {character: character}
+              .modal-footer
+                %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+      %td= link_to 'Destroy', character, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+-#%br
+
+-#= link_to 'New Character', new_character_path
+
+%br
+
+/ Button trigger modal
+%button.btn.btn-primary.btn-lg{"data-target" => "#myModal", "data-toggle" => "modal", :type => "button"}
+  Create a Character
+/ Modal
+#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} &times;
+          %span.sr-only Close
+        %h4#myModalLabel.modal-title Create a Character
+      .modal-body
+        = render partial: 'form', locals: {character: Character.new}
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close

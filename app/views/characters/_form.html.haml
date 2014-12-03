@@ -1,0 +1,10 @@
+= simple_form_for(character) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :age
+    = f.input :photo_url
+
+  .form-actions
+    = f.button :submit

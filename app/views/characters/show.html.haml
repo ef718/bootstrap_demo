@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @character.name
+%p
+  %b Age:
+  = @character.age
+
+%p
+  %b Photo:
+  %br
+  %img{src: @character.photo_url, width: '200'}/
+
+/ Button trigger modal
+%button.btn.btn-primary.btn-lg{"data-target" => "#myModal_#{@character.id}", "data-toggle" => "modal", :type => "button"}
+  Update
+/ Modal
+%div{:id => "myModal_#{@character.id}", :class => ["modal", "fade"]}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} &times;
+          %span.sr-only Close
+        %h4#myModalLabel.modal-title Update Character
+      .modal-body
+        = render partial: 'form', locals: {character: @character}
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+-#= link_to 'Edit', edit_character_path(@character)
+\|
+= link_to 'Back', characters_path
